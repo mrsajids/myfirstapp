@@ -20,7 +20,7 @@
             <h2>Your Posts</h2>
             <hr>
             <div class="row">
-                <div *ngIf="1==1">No Data Found </div>
+                <div *ngIf="posts.length==0" class="text-center">No Data Found </div>
 
                 <div *ngFor="let item of posts" class="col-md-6">
                     <div class="card" style="width: 18rem;">
@@ -36,6 +36,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- <div class="col-md-6" >
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
