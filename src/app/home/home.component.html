@@ -1,6 +1,6 @@
 <div class="container mt-3">
     <div class="row">
-        <div class="col-md-6" style="height: 100vh;">
+        <div class="col-md-5" style="height: 100vh;">
             <h1>Home</h1>
             <form (ngSubmit)="submitForm(userDetails)">
                 <div class="mb-3">
@@ -13,13 +13,42 @@
                     <input type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="userDetails.post"
                         name="post">
                 </div>
-                <button type="submit" class="btn btn-primary d-block mx-auto">Submit</button>
+                <button type="submit" class="btn btn-outline-primary btn-lg d-block mx-auto">Submit</button>
             </form>
         </div>
-        <div class="col-md-6 border-start" style="height: 100vh;">
+        <div class="col-md-6 border-start ms-3" style="height: 100vh;">
             <h2>Your Posts</h2>
-            <h4> Name: {{userDetails.name}}</h4>
-            <h4> post: {{userDetails.post}}</h4>
+            <hr>
+            <div class="row">
+                <div *ngIf="1==1">No Data Found </div>
+
+                <div *ngFor="let item of posts" class="col-md-6">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">{{item.post}}</p>
+                            <div class="d-flex justify-content-end">
+                                <div class="btn btn-dark me-2" (click)="updatePost(item)">Edit</div>
+                                <div class="btn btn-danger" (click)="deletePost(item)">Delete</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-6" >
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        
+                        </div>
+                      </div>
+                </div> -->
+            </div>
+            <!-- <h4> Name: {{userDetails.name}}</h4>
+            <h4> post: {{userDetails.post}}</h4> -->
 
 
         </div>
